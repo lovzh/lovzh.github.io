@@ -140,14 +140,15 @@ var fields 	=	{
 																					}
 																},
 
-						'Default - Password':					{	'show_rows'	:	[
-																						'.row-field-title',
-																						'.row-description',
-																						'.row-required'
-																					],
-                                                                    'properties':	{
-                                                                        'meta_name_value'	: ''
-                                                                    },
+							'Default - Password':					{	'show_rows'	:	[
+																							'.row-field-title',
+																							'.row-description',
+																							'.row-required',
+																							'.row-ask-current-password'
+																						],
+	                                                                    'properties':	{
+	                                                                        'meta_name_value'	: ''
+	                                                                    },
                                                                     'required'	:	[
 																						true
 																					]
@@ -502,7 +503,8 @@ var fields 	=	{
 																						'.row-allowed-extensions',
 																						'.row-required',
 																						'.row-overwrite-existing',
-																						'.row-allowed-upload-extensions'
+																						'.row-allowed-upload-extensions',
+																						'.row-max-file-size'
 																					]
 																},
 
@@ -513,6 +515,7 @@ var fields 	=	{
 																						'.row-simple-upload',
 																						'.row-allowed-image-extensions',
 																						'.row-avatar-size',
+																						'.row-max-file-size',
 																						'.row-required',
 																						'.row-overwrite-existing'
 																					]
@@ -571,6 +574,24 @@ var fields 	=	{
 																						'.row-private-key',
                                                                                         '.row-captcha-pb-forms',
                                                                                         '.row-captcha-wp-forms',
+																						'.row-required'
+																					],
+																	'required'	:	[
+																						true
+																					],
+                                                                    'properties':	{
+                                                                       'meta_name_value'	: ''
+                                                                    }
+																},
+
+						'Turnstile':							{	'show_rows'	:	[
+																						'.row-field-title',
+																						'.row-description',
+																						'.row-theme',
+																						'.row-turnstile-site-key',
+																						'.row-turnstile-secret-key',
+                                                                                        '.row-turnstile-pb-forms',
+                                                                                        '.row-turnstile-wp-forms',
 																						'.row-required'
 																					],
 																	'required'	:	[
@@ -683,7 +704,7 @@ function wppb_hide_all ( container_name ){
 	jQuery( container_name + ' ' + '.mb-list-entry-fields .button-primary' ).attr( 'disabled', true );
 
 	jQuery( container_name + ' ' + '.element_type_default-e-mail .mbdelete,' + ' ' + container_name + ' ' + '.element_type_default-password .mbdelete,' + ' ' + container_name + ' ' + '.element_type_default-username .mbdelete'  ).hide();	// PB specific line
-	jQuery( container_name + ' ' + '.element_type_default-e-mail #field' + ', ' + container_name + ' ' + '.element_type_default-password #field' + ',  ' + container_name + ' ' + '.element_type_default-username #field' + ', ' + container_name + ' ' + '.element_type_default-e-mail #required' + ', ' + container_name + ' ' + '.element_type_default-password #required,'  + container_name + ' ' + '.element_type_default-username #required,'  + container_name + ' ' + '.element_type_checkbox-terms-and-conditions #required,'  + container_name + ' ' + '.element_type_recaptcha #required,' + container_name + ' ' + '.element_type_woocommerce-customer-billing-address #field, ' + container_name + ' ' + '.element_type_woocommerce-customer-shipping-address #field').attr( 'disabled', true );		// PB specific line
+	jQuery( container_name + ' ' + '.element_type_default-e-mail #field' + ', ' + container_name + ' ' + '.element_type_default-password #field' + ',  ' + container_name + ' ' + '.element_type_default-username #field' + ', ' + container_name + ' ' + '.element_type_default-e-mail #required' + ', ' + container_name + ' ' + '.element_type_default-password #required,'  + container_name + ' ' + '.element_type_default-username #required,'  + container_name + ' ' + '.element_type_checkbox-terms-and-conditions #required,'  + container_name + ' ' + '.element_type_recaptcha #required,' + container_name + ' ' + '.element_type_turnstile #required,' + container_name + ' ' + '.element_type_woocommerce-customer-billing-address #field, ' + container_name + ' ' + '.element_type_woocommerce-customer-shipping-address #field').attr( 'disabled', true );		// PB specific line
 
 }
 
